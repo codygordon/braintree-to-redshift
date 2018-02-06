@@ -1,14 +1,12 @@
 # Braintree to Redshift
 
-Simple Node.js utility that fetches
-
-Robust logging with [winston](https://github.com/winstonjs/winston).
+Simple Node.js utility that syncs Braintree API data to Redshift tables.
 
 ## Install
 
 ```sh
-$ git clone git@github.com:codygordon/redash-to-salesforce.git
-$ cd redash-to-salesforce
+$ git clone git@github.com:codygordon/braintree-to-redshift.git
+$ cd braintree-to-redshift
 $ npm i
 ```
 
@@ -20,36 +18,16 @@ First, copy `.env.example` to a new `.env` (make sure to leave `.env.example` in
 $ cp .env.example .env
 ```
 
-Env Variable      | Value
------------------ | --------------------------------------------------------
-`REDSHIFT_HOST` |
-`REDSHIFT_DATABASE` |
-`REDSHIFT_USER` |
-`REDSHIFT_PASSWORD` | *(make sure to update if changed)*
-`SENDGRID_API_KEY` |
-`BRAINTREE_MERCHANT_ID` |
-`BRAINTREE_PUBLIC_KEY` |
-`BRAINTREE_PRIVATE_KEY` |
-`LOGS_PATH` | *(log files in production will be saved in specified folder path)*
-
-Second, edit `lib\config.js` and enter objects into the `config` constant (array).
-
-```js
-const config = [
-
-]
-```
-
-### Redshift
-
-
-
-### Braintree
-
-***The script will fail if the following conditions aren't met:***
-
--
--
+Env Variables Required   
+-----------------
+`REDSHIFT_HOST`
+`REDSHIFT_DATABASE`
+`REDSHIFT_USER`
+`REDSHIFT_PASSWORD`
+`SENDGRID_API_KEY`
+`BRAINTREE_MERCHANT_ID`
+`BRAINTREE_PUBLIC_KEY`
+`BRAINTREE_PRIVATE_KEY`
 
 ## Build
 
@@ -61,6 +39,8 @@ $ npm run build
 
 ## Deploy to Lambda
 
+Intended for deployment to AWS Lambda -- Webpack build works in Node v6.10.* or higher.
+
 ### Development
 
 You may start the script in `development` mode (which uses [nodemon](https://github.com/remy/nodemon) and will log to the console) by running:
@@ -69,6 +49,10 @@ You may start the script in `development` mode (which uses [nodemon](https://git
 $ npm start
 ```
 
-## TODOs
+## Testing
 
-1. Write test suites in Mocha
+Test suites written in Mocha. Run with:
+
+```sh
+$ npm test
+```
