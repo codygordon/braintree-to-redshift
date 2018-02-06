@@ -18,32 +18,20 @@ First, copy `.env.example` to a new `.env` (make sure to leave `.env.example` in
 $ cp .env.example .env
 ```
 
-Env Variables Required   
+Env Variable | Required to Run
 -----------------
-`REDSHIFT_HOST`
-`REDSHIFT_DATABASE`
-`REDSHIFT_USER`
-`REDSHIFT_PASSWORD`
-`SENDGRID_API_KEY`
-`BRAINTREE_MERCHANT_ID`
-`BRAINTREE_PUBLIC_KEY`
-`BRAINTREE_PRIVATE_KEY`
+`REDSHIFT_HOST`  | Yes
+`REDSHIFT_DATABASE` | Yes
+`REDSHIFT_USER` | Yes
+`REDSHIFT_PASSWORD` | Yes
+`SENDGRID_API_KEY` | Yes
+`BRAINTREE_MERCHANT_ID` | Yes
+`BRAINTREE_PUBLIC_KEY` | Yes
+`BRAINTREE_PRIVATE_KEY` | Yes
 
-## Build
+## Development
 
-Webpack is used to build into single production dist file, intended to be deployed to AWS Lambda:
-
-```sh
-$ npm run build
-```
-
-## Deploy to Lambda
-
-Intended for deployment to AWS Lambda -- Webpack build works in Node v6.10.* or higher.
-
-### Development
-
-You may start the script in `development` mode (which uses [nodemon](https://github.com/remy/nodemon) and will log to the console) by running:
+You may start the script in `development` mode which assumes Node v9+ by running:
 
 ```sh
 $ npm start
@@ -55,4 +43,12 @@ Test suites written in Mocha. Run with:
 
 ```sh
 $ npm test
+```
+
+## Build and Deploy
+
+Webpack is used to build into single production dist file, intended to be deployed to AWS Lambda thus Babelified to work in Node v6.10+:
+
+```sh
+$ npm run build
 ```
