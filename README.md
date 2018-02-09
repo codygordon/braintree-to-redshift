@@ -1,6 +1,6 @@
 # Braintree to Redshift
 
-Simple Node.js utility that syncs Braintree API data to Redshift tables.
+Node.js utility that uploads small chunks (intended for deployment in time-limited Lambda environment) of Braintree data in CSV files to S3, then uses the Redshift COPY command to load the data into tables from S3.
 
 Currently supports [Transaction](https://developers.braintreepayments.com/reference/response/transaction/node), [Subscription](https://developers.braintreepayments.com/reference/response/subscription/node), and [Dispute](https://developers.braintreepayments.com/reference/response/dispute/node) Braintree API Response Objects.
 
@@ -20,16 +20,22 @@ First, copy `.env.example` to a new `.env` (make sure to leave `.env.example` in
 $ cp .env.example .env
 ```
 
-| Env Variable | Required |
-| ----------------- | :-----: |
-| `REDSHIFT_HOST`  | Yes |
-| `REDSHIFT_DATABASE` | Yes |
-| `REDSHIFT_USER` | Yes |
-| `REDSHIFT_PASSWORD` | Yes |
-| `SENDGRID_API_KEY` | Yes |
-| `BRAINTREE_MERCHANT_ID` | Yes |
-| `BRAINTREE_PUBLIC_KEY` | Yes |
-| `BRAINTREE_PRIVATE_KEY` | Yes |
+| Required Env Variable  |
+| :-----------------: |
+| `REDSHIFT_HOST`  |
+| `REDSHIFT_PORT`  |
+| `REDSHIFT_DATABASE` |
+| `REDSHIFT_USER` |
+| `REDSHIFT_PASSWORD` |
+| `REDSHIFT_DATABASE` |
+| `REDSHIFT_SCHEMA_NAME` |
+| `AWS_ACCESS_KEY_ID` |
+| `AWS_SECRET_ACCESS_KEY` |
+| `AWS_S3_BUCKET` |
+| `AWS_REGION` |
+| `BRAINTREE_MERCHANT_ID` |
+| `BRAINTREE_PUBLIC_KEY` |
+| `BRAINTREE_PRIVATE_KEY` |
 
 ## Development
 
