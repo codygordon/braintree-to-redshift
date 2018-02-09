@@ -2,6 +2,8 @@
 
 Simple Node.js utility that syncs Braintree API data to Redshift tables.
 
+Currently supports [Transaction](https://developers.braintreepayments.com/reference/response/transaction/node), [Subscription](https://developers.braintreepayments.com/reference/response/subscription/node), and [Dispute](https://developers.braintreepayments.com/reference/response/dispute/node) Braintree API Response Objects.
+
 ## Install
 
 ```sh
@@ -18,16 +20,16 @@ First, copy `.env.example` to a new `.env` (make sure to leave `.env.example` in
 $ cp .env.example .env
 ```
 
-Env Variable | Required to Run
------------------
-`REDSHIFT_HOST`  | Yes
-`REDSHIFT_DATABASE` | Yes
-`REDSHIFT_USER` | Yes
-`REDSHIFT_PASSWORD` | Yes
-`SENDGRID_API_KEY` | Yes
-`BRAINTREE_MERCHANT_ID` | Yes
-`BRAINTREE_PUBLIC_KEY` | Yes
-`BRAINTREE_PRIVATE_KEY` | Yes
+| Env Variable | Required |
+| ----------------- | :-----: |
+| `REDSHIFT_HOST`  | Yes |
+| `REDSHIFT_DATABASE` | Yes |
+| `REDSHIFT_USER` | Yes |
+| `REDSHIFT_PASSWORD` | Yes |
+| `SENDGRID_API_KEY` | Yes |
+| `BRAINTREE_MERCHANT_ID` | Yes |
+| `BRAINTREE_PUBLIC_KEY` | Yes |
+| `BRAINTREE_PRIVATE_KEY` | Yes |
 
 ## Development
 
