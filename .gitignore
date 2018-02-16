@@ -2,6 +2,7 @@
 dist/*
 logs/*
 tmp/*
+claudia.json
 npm-debug.log
 .env
 .DS_Store
