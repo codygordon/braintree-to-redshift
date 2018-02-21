@@ -8,6 +8,7 @@ module.exports = {
   entry: ['babel-polyfill', './lib/index.js'],
   target: 'node',
   output: {
+    libraryTarget: 'commonjs',
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
   },
